@@ -63,7 +63,7 @@ java -jar CopyActionDaemon.jar
 
 ## 3. 开发过程
 
-> 因为CopyTranslator的这个feature bug，其实弄得我挺糟心的，因为我太懒了，看文献的时候就是不想手动按Ctrl C。所以中途还上网找了两个其它方案--知云和scitranslate，但是它们两个的官网做得实在是一言难尽，且它们固定了pdf软件，而它们pdf不满足我的要求（全屏+只定义背景色）。所以我尝试了小半天，还是回到了CopyTranslator的阵营。
+> 因为CopyTranslator的这个feature bug，其实弄得我挺糟心的，因为我太懒了，看文献的时候就是不想手动按Ctrl C。所以中途还上网找了两个其它方案--知云和scitranslate，但是它们两个的官网做得实在是一言难尽，且它们固定了pdf软件，而它们的pdf软件不满足我的要求（全屏+自定义背景色）。所以我尝试了小半天，还是回到了CopyTranslator的阵营。
 >
 > 于是为了解决CopyTranslator的这个”拖拽翻译“的bug，就有了这个小项目。
 
