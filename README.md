@@ -12,7 +12,7 @@ CopyTranslator真的是一个非常良心的文献阅读翻译软件，但或许
 
 
 
-CopyActionDaemon则是为了解决这个feature bug而开发的。（当然了，CopyTranslaor仍在更新迭代中，所以这个Project很可能要不了多久就作废了。
+CopyActionDaemon则是为了解决这个feature bug而开发的。(当然了，CopyTranslaor仍在更新迭代中，所以这个Project很可能要不了多久就作废了)
 
 另外：
 
