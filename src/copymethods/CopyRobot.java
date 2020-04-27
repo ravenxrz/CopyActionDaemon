@@ -1,17 +1,33 @@
+package copymethods;
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
 /**
  * 复制器
  */
-class CopyerRobot{
+public class CopyRobot {
     private Robot robot;
-    {
+    private static CopyRobot copyerRobot;
+
+    private CopyRobot(){
         try {
             robot = new Robot();
         } catch (AWTException e) {
             e.printStackTrace();
         }
+    }
+
+    public static CopyRobot getInstance(){
+        // double check singleton
+        if(copyerRobot == null){
+            synchronized (CopyRobot.class){
+                if(copyerRobot == null){
+                    copyerRobot = new CopyRobot();
+                }
+            }
+        }
+        return copyerRobot;
     }
 
 
@@ -21,18 +37,11 @@ class CopyerRobot{
      *          true 成功
      *          false 失败
      */
-    public boolean triggerCopy(){
+    public synchronized void triggerCopy(){
         robot.keyPress(KeyEvent.VK_CONTROL);
         robot.keyPress(KeyEvent.VK_C);
-        // 延迟100ms
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            return false;
-        }
+        robot.delay(robot.getAutoDelay());
         robot.keyRelease(KeyEvent.VK_C);
         robot.keyRelease(KeyEvent.VK_CONTROL);
-        return true;
     }
 }

@@ -1,10 +1,7 @@
+import listener.GlobalMouseListener;
 import org.jnativehook.GlobalScreen;
 import org.jnativehook.NativeHookException;
-import org.jnativehook.mouse.NativeMouseEvent;
-import org.jnativehook.mouse.NativeMouseInputListener;
 
-import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

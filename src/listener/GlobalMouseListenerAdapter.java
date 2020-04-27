@@ -1,3 +1,5 @@
+package listener;
+
 import org.jnativehook.mouse.NativeMouseEvent;
 import org.jnativehook.mouse.NativeMouseInputListener;
 
