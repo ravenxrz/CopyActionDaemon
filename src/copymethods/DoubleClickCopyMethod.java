@@ -29,7 +29,6 @@ public class DoubleClickCopyMethod extends CopyMethod{
     boolean triggerCopy(GlobalMouseListener globalMouseListener) {
         // double click interval
         long interval = globalMouseListener.getClickInterval();
-        System.out.println(interval);
         return sendCopyAction(interval);
     }
 

@@ -36,7 +36,6 @@ public class CopyMethodDelegator {
     public void delegateCopy(GlobalMouseListener mouseListener){
         for(CopyMethod copyMethod : copyMethods){
             if(copyMethod.triggerCopy(mouseListener)){
-                System.out.println(copyMethod);
                 return;
             }
         }
