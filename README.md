@@ -1,0 +1,2 @@
+# CopyActionDaemojn
+CopyActionDaemon for CopyTranslator
