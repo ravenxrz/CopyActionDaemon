@@ -38,6 +38,7 @@ public class CopyRobot {
      *          false 失败
      */
     public synchronized void triggerCopy(){
+        // do copy action
         robot.keyPress(KeyEvent.VK_CONTROL);
         robot.keyPress(KeyEvent.VK_C);
         robot.delay(robot.getAutoDelay());

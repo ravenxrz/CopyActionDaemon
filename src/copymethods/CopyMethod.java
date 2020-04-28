@@ -1,6 +1,9 @@
 package copymethods;
 
 import listener.GlobalMouseListener;
+import org.jnativehook.mouse.NativeMouseEvent;
+
+import java.lang.annotation.Native;
 
 /**
  * @author Raven
@@ -9,12 +12,24 @@ import listener.GlobalMouseListener;
  */
 public abstract class CopyMethod {
     protected CopyRobot copyerRobot = CopyRobot.getInstance();
+    // indicate whether the copy action has been processed
+    protected boolean isProcessed = false;
+
+    public boolean isProcessed() {
+        return isProcessed;
+    }
 
     /**
-     * 处理copy的动作
-     * @param globalMouseListener
-     * @return 处理完成，return true
-     *         无法处理，return false
+     * 鼠标按下事件
+     * @param event
      */
-    abstract boolean triggerCopy(GlobalMouseListener globalMouseListener);
+    public abstract void onPressed(NativeMouseEvent event);
+
+    /**
+     * 鼠标释放事件
+     * @param event
+     */
+    public abstract void onRelease(NativeMouseEvent event);
+
+
 }
