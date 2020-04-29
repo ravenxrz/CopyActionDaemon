@@ -19,7 +19,7 @@ public class MouseMoveCopyMethod extends CopyMethod {
     private Point startPoint, endPoint;
 
     public MouseMoveCopyMethod() {
-        this.threshold = 50;    // default: 300ms
+        this.threshold = 50;    // default: 50 px
         startPoint = endPoint = new Point(0, 0);
     }
 
@@ -73,7 +73,7 @@ public class MouseMoveCopyMethod extends CopyMethod {
         double sy = startPoint.getY();
         double ex = endPoint.getX();
         double ey = endPoint.getY();
-        return Math.sqrt(sx - ex)*(sx - ex) + (sy - ey)*(sy - ey);
+        return Math.sqrt((sx - ex)*(sx - ex) + (sy - ey)*(sy - ey));
     }
 
 }
