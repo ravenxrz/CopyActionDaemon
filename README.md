@@ -16,7 +16,7 @@ CopyActionDaemon则是为了解决这个feature bug而开发的。(当然了，C
 
 另外：
 
-> 由于个人不会js的相关技术，所以最终采用了自己比较熟悉的**java**来实现。但java是依赖**jre**的，所以对没有安装jre的小伙伴来说就不太友好了。
+> 由于个人不会js的相关技术，所以最终采用了自己比较熟悉的**java**来实现。**但无需用户安装jre环境。**
 
 ## 2. 使用
 
@@ -32,11 +32,11 @@ CopyActionDaemon则是为了解决这个feature bug而开发的。(当然了，C
 
 ### 如何使用？
 
-进入 [release](https://github.com/ravenxrz/CopyActionDaemon/releases)页面下载CopyActionDaemon.jar。
+进入 [release](https://github.com/ravenxrz/CopyActionDaemon/releases)页面下载对应平台安装包，目前打包了windows平台，下一步拟支持Linux平台，由于无mac电脑，所以无法打mac下的安装包。有兴趣的朋友可自行打包。
 
-> 提示，一定要确保电脑有jre环境。
+**对于无对应安装包的平台，可自行下载jar包。**（这种情况需要自行下载jre）
 
-然后，打开cmd窗口，执行:
+然后，打开terminal窗口，执行:
 
 ```java
 cd 到CopyActionDaemon.jar的路径下去
@@ -47,19 +47,13 @@ java -jar CopyActionDaemon.jar
 
 ![image-20200427202255644](https://cdn.jsdelivr.net/gh/ravenxrz/PicBed/img/image-20200427202255644.png)
 
-使用Ctrl+C结束进程。
+windows平台可自行下载对应安装包。
 
-如果现在后台运行jar包，可致性：
+**系统托盘可管理是否开启自动复制：**
 
-```java
- javaw -jar start CopyActionDaemon.jar
-```
+![image-20200506160201270](https://cdn.jsdelivr.net/gh/ravenxrz/PicBed/img/image-20200506160201270.png)
 
-但是后者要想结束进程就没那么容易了，可以通过**”资源监视器“**来结束进程。
 
-![image-20200427202939388](https://cdn.jsdelivr.net/gh/ravenxrz/PicBed/img/image-20200427202939388.png)
-
-总体来说，**推荐第一种使用方法，因为方便开关，要结束Ctrl+C，要重新开始，按一下上再回车即可。**
 
 ## 3. 开发过程
 
