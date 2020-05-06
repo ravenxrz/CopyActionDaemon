@@ -1,6 +1,5 @@
 package copymethods;
 
-import listener.GlobalMouseListener;
 import org.jnativehook.mouse.NativeMouseEvent;
 
 import java.awt.*;

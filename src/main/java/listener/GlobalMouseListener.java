@@ -1,6 +1,7 @@
 package listener;
 
 import copymethods.MouseEventDispatcher;
+import org.jnativehook.mouse.NativeMouseAdapter;
 import org.jnativehook.mouse.NativeMouseEvent;
 
 /**
@@ -8,7 +9,7 @@ import org.jnativehook.mouse.NativeMouseEvent;
  * @version 1.0
  * @date 2020/4/27 15:43
  */
-public class GlobalMouseListener extends GlobalMouseListenerAdapter {
+public class GlobalMouseListener extends NativeMouseAdapter {
 
     private MouseEventDispatcher mouseEventDispatcher = new MouseEventDispatcher();
 

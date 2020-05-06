@@ -1,5 +1,6 @@
 package copymethods;
 
+import initiator.SystemTrayInitiator;
 import org.jnativehook.mouse.NativeMouseEvent;
 
 import java.util.ArrayList;
@@ -11,11 +12,14 @@ import java.util.List;
  * @date 2020/4/28 11:51
  * 鼠标事件分发器
  */
-public class MouseEventDispatcher {
+public class MouseEventDispatcher{
     private List<CopyMethod> copyMethods = new ArrayList<>();
-
+    private boolean needDispatcher = true;
     public MouseEventDispatcher() {
+        // 初始化处理链
         initializeCopyMethodsChain();
+        // 初始化监听器
+        initializeListeners();
     }
 
     /**
@@ -28,13 +32,19 @@ public class MouseEventDispatcher {
         copyMethods.add(new MouseMoveCopyMethod());
     }
 
+    private void initializeListeners(){
+        SystemTrayInitiator.setCopyActionMenuItemListener((selected -> { needDispatcher = selected; }));
+    }
+
     public void pressEventDispatch(NativeMouseEvent event){
+        if(!needDispatcher) return;
         for(CopyMethod copyMethod : copyMethods){
             copyMethod.onPressed(event);
         }
     }
 
     public void releaseEventDispatch(NativeMouseEvent event){
+        if(!needDispatcher) return;
         for(CopyMethod copyMethod : copyMethods){
             copyMethod.onRelease(event);
             if(copyMethod.isProcessed()){
@@ -43,4 +53,5 @@ public class MouseEventDispatcher {
             }
         }
     }
+
 }
