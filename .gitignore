@@ -32,3 +32,14 @@ META-INF
 
 # remove target dir
 target
+
+# package
+package
+
+# remove package
+*.exe
+*.msi
+*.deb
+*.rpm
+*.dmg
+*.pkg
