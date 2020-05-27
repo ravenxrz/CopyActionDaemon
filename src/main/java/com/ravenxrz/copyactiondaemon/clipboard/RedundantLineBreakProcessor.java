@@ -14,13 +14,14 @@ public class RedundantLineBreakProcessor {
                 sb.append(tempStr, 0, tempStr.length() - 1);
             } else {
                 if (ChineseOrEnglish.isChinese(tempStr)) {
+                    // 中文不需要多余空格
                     sb.append(tempStr);
                 } else if (ChineseOrEnglish.isEnglish(tempStr)) {
+                    // 英文需要多余空格
                     sb.append(tempStr).append(" ");
                 }
             }
         }
         return sb.toString();
     }
-
 }
