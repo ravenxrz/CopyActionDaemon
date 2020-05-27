@@ -74,7 +74,7 @@ windows平台可自行下载对应安装包。
 另外，因为我没有mac的电脑，所以没法测试，mac用户如果需要使用，只需要修改
 
 ```java
- // copymethods/CopyRobot.java
+ // com.ravenxrz.copyactiondaemon.copymethods/CopyRobot.java
 public synchronized void triggerCopy(){
     // CONTROL换Command
      robot.keyPress(KeyEvent.VK_CONTROL);

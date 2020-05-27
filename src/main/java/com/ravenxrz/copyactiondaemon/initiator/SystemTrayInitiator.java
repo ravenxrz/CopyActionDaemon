@@ -1,4 +1,4 @@
-package initiator;
+package com.ravenxrz.copyactiondaemon.initiator;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -19,9 +19,12 @@ public class SystemTrayInitiator {
     /**
      * 有状态item
      */
-    private static CheckboxMenuItem copyActionItem = new CheckboxMenuItem("打开");
-    // 如果有多个监听的对象，这里改用List
-    private static CopyActionMenuItemListener copyActionMenuItemListener;
+    private static CheckboxMenuItem copyActionItem = new CheckboxMenuItem("自动复制");
+    private static CheckboxMenuItem textFormatItem = new CheckboxMenuItem("文本格式化");
+    // 自动复制
+    private static ActionMenuClickListener copyActionListener;
+    // 剪切板（文本格式化用）
+    private static ActionMenuClickListener clipboardActionListener;
 
 
     public static void initialize() {
@@ -66,8 +69,11 @@ public class SystemTrayInitiator {
         // 默认打开copyAction,写死了，后期可能采用配置文件形式
         copyActionItem.setState(true);
         copyActionItem.addItemListener(systemTrayPopupEventProcess);
+        textFormatItem.setState(true);
+        textFormatItem.addItemListener(systemTrayPopupEventProcess);
         exitItem.addActionListener(systemTrayPopupEventProcess);
         popupMenu.add(copyActionItem);
+        popupMenu.add(textFormatItem);
         popupMenu.add(exitItem);
         return popupMenu;
     }
@@ -101,6 +107,8 @@ public class SystemTrayInitiator {
             Object source = e.getSource();
             if(source == copyActionItem){
                 copyAction(e.getStateChange());
+            }else if(source == textFormatItem){
+                textFormatAction(e.getStateChange());
             }
         }
 
@@ -108,8 +116,18 @@ public class SystemTrayInitiator {
          * 处理copyAction打开或关闭事件
          */
         private void copyAction(int state){
-            if(copyActionMenuItemListener != null){
-                copyActionMenuItemListener.onClick(state == ItemEvent.SELECTED);
+            if(copyActionListener != null){
+                copyActionListener.onClick(state == ItemEvent.SELECTED);
+            }
+        }
+
+        /**
+         * 文本格式化打开或关闭
+         * @param state
+         */
+        private void textFormatAction(int state){
+            if(clipboardActionListener != null){
+                clipboardActionListener.onClick(state == ItemEvent.SELECTED);
             }
         }
     }
@@ -120,12 +138,15 @@ public class SystemTrayInitiator {
      * 托盘触发->中介者->事件分发器？
      * 或者通过全局状态，方便读取配置文件
      */
-    public interface CopyActionMenuItemListener{
+    public interface ActionMenuClickListener {
         void onClick(boolean selected);
     }
 
-    public static void setCopyActionMenuItemListener(CopyActionMenuItemListener copyActionMenuItemListener) {
-        SystemTrayInitiator.copyActionMenuItemListener = copyActionMenuItemListener;
+    public static void setCopyActionListener(ActionMenuClickListener copyActionListener) {
+        SystemTrayInitiator.copyActionListener = copyActionListener;
     }
 
+    public static void setClipboardActionListener(ActionMenuClickListener clipboardActionListener) {
+        SystemTrayInitiator.clipboardActionListener = clipboardActionListener;
+    }
 }

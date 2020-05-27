@@ -1,6 +1,6 @@
-package copymethods;
+package com.ravenxrz.copyactiondaemon.copymethods;
 
-import initiator.SystemTrayInitiator;
+import com.ravenxrz.copyactiondaemon.initiator.SystemTrayInitiator;
 import org.jnativehook.mouse.NativeMouseEvent;
 
 import java.util.ArrayList;
@@ -33,7 +33,7 @@ public class MouseEventDispatcher{
     }
 
     private void initializeListeners(){
-        SystemTrayInitiator.setCopyActionMenuItemListener((selected -> { needDispatch = selected; }));
+        SystemTrayInitiator.setCopyActionListener((selected -> { needDispatch = selected; }));
     }
 
     public void pressEventDispatch(NativeMouseEvent event){

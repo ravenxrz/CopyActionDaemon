@@ -1,6 +1,6 @@
-package listener;
+package com.ravenxrz.copyactiondaemon.listener;
 
-import copymethods.MouseEventDispatcher;
+import com.ravenxrz.copyactiondaemon.copymethods.MouseEventDispatcher;
 import org.jnativehook.mouse.NativeMouseAdapter;
 import org.jnativehook.mouse.NativeMouseEvent;
 

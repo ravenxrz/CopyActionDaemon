@@ -1,4 +1,6 @@
-import initiator.Initiator;
+package com.ravenxrz.copyactiondaemon;
+
+import com.ravenxrz.copyactiondaemon.initiator.Initiator;
 
 /**
  * @author Raven

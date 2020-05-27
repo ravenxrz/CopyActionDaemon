@@ -1,9 +1,6 @@
-package copymethods;
+package com.ravenxrz.copyactiondaemon.copymethods;
 
-import listener.GlobalMouseListener;
 import org.jnativehook.mouse.NativeMouseEvent;
-
-import java.lang.annotation.Native;
 
 /**
  * @author Raven

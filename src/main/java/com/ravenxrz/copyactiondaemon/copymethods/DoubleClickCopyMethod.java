@@ -1,4 +1,4 @@
-package copymethods;
+package com.ravenxrz.copyactiondaemon.copymethods;
 
 import org.jnativehook.mouse.NativeMouseEvent;
 
