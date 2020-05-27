@@ -16,7 +16,7 @@ public class RedundantLineBreakProcessor {
                 if (ChineseOrEnglish.isChinese(tempStr)) {
                     // 中文不需要多余空格
                     sb.append(tempStr);
-                } else if (ChineseOrEnglish.isEnglish(tempStr)) {
+                } else {
                     // 英文需要多余空格
                     sb.append(tempStr).append(" ");
                 }
